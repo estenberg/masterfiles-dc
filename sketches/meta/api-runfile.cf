@@ -30,63 +30,34 @@ bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __Pakcage_exists_001_Packages_installed_installed
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[activation][identifier]" string => "Pakcage exists";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369176151";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[api][pkgs_delete][type]" string => "list";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__Pakcage_exists_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __Nonexsitsant_001_Packages_installed_installed
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[activation][identifier]" string => "Nonexsitsant";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369176514";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[api][pkgs_delete][type]" string => "list";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__Nonexsitsant_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_add' from definition 4a0783c23be822ed0b63e309777eb04c, activation __Pakcage_exists_001_Packages_installed_installed
-      "__Pakcage_exists_001_Packages_installed_installed_pkgs_add" slist => { "sl" };
+      # list 'pkgs_add' from definition ffd08206ceb08f6a8400576d40eda69c, activation __Nonexsitsant_001_Packages_installed_installed
+      "__Nonexsitsant_001_Packages_installed_installed_pkgs_add" slist => { "nosuchpackage" };
 
-      # list 'pkgs_delete' from definition 4a0783c23be822ed0b63e309777eb04c, activation __Pakcage_exists_001_Packages_installed_installed
-      "__Pakcage_exists_001_Packages_installed_installed_pkgs_delete" slist => { "nano" };
-
-      # array 'metadata' from definition sketch metadata, activation __Nonexsitsant_002_Packages_installed_installed
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[activation][identifier]" string => "Nonexsitsant";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1369176514";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[api][pkgs_delete][type]" string => "list";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__Nonexsitsant_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_add' from definition ffd08206ceb08f6a8400576d40eda69c, activation __Nonexsitsant_002_Packages_installed_installed
-      "__Nonexsitsant_002_Packages_installed_installed_pkgs_add" slist => { "nosuchpackage" };
-
-      # list 'pkgs_delete' from definition ffd08206ceb08f6a8400576d40eda69c, activation __Nonexsitsant_002_Packages_installed_installed
-      "__Nonexsitsant_002_Packages_installed_installed_pkgs_delete" slist => { "thepackageis", "nothereeither" };
+      # list 'pkgs_delete' from definition ffd08206ceb08f6a8400576d40eda69c, activation __Nonexsitsant_001_Packages_installed_installed
+      "__Nonexsitsant_001_Packages_installed_installed_pkgs_delete" slist => { "thepackageis", "nothereeither" };
 
   methods:
     any::
@@ -94,12 +65,9 @@ bundle agent cfsketch_run
       "1d41c853af58d3a7ae54990ce29417d8" usebundle => "1d41c853af58d3a7ae54990ce29417d8";
 
     runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
-      "__Pakcage_exists_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__Pakcage_exists_001_Packages_installed_installed_metadata", @(cfsketch_run.__Pakcage_exists_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__Pakcage_exists_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___Pakcage_exists_001_Packages_installed_installed";
-    runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
-      "__Nonexsitsant_002_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__Nonexsitsant_002_Packages_installed_installed_metadata", @(cfsketch_run.__Nonexsitsant_002_Packages_installed_installed_pkgs_add), @(cfsketch_run.__Nonexsitsant_002_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___Nonexsitsant_002_Packages_installed_installed";
+      "__Nonexsitsant_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__Nonexsitsant_001_Packages_installed_installed_metadata", @(cfsketch_run.__Nonexsitsant_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__Nonexsitsant_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___Nonexsitsant_001_Packages_installed_installed";
 
   reports:
     inform_mode::
-      "activation __Pakcage_exists_001_Packages_installed_installed could not run because it requires classes (debian)" ifvarclass => "inform_mode.!((debian))";
-      "activation __Nonexsitsant_002_Packages_installed_installed could not run because it requires classes (debian)" ifvarclass => "inform_mode.!((debian))";
+      "activation __Nonexsitsant_001_Packages_installed_installed could not run because it requires classes (debian)" ifvarclass => "inform_mode.!((debian))";
 }
