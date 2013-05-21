@@ -59,6 +59,35 @@ bundle agent cfsketch_run
       # list 'pkgs_delete' from definition 7b504b41baa3a548a17a22dd4bd1cb7c, activation __exists_001_Packages_installed_installed
       "__exists_001_Packages_installed_installed_pkgs_delete" slist => { "sl" };
 
+      # array 'metadata' from definition sketch metadata, activation __nonexist_002_Packages_installed_installed
+      "__nonexist_002_Packages_installed_installed_metadata[activation][identifier]" string => "nonexist";
+      "__nonexist_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1369180357";
+      "__nonexist_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__nonexist_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__nonexist_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__nonexist_002_Packages_installed_installed_metadata[api][pkgs_delete][type]" string => "list";
+      "__nonexist_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__nonexist_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__nonexist_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__nonexist_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__nonexist_002_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__nonexist_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__nonexist_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__nonexist_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__nonexist_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__nonexist_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__nonexist_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__nonexist_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__nonexist_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__nonexist_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__nonexist_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_add' from definition fe1c1d4f1ce4e8d6c3092e58cc071b59, activation __nonexist_002_Packages_installed_installed
+      "__nonexist_002_Packages_installed_installed_pkgs_add" slist => { "doesnotex", "ist" };
+
+      # list 'pkgs_delete' from definition fe1c1d4f1ce4e8d6c3092e58cc071b59, activation __nonexist_002_Packages_installed_installed
+      "__nonexist_002_Packages_installed_installed_pkgs_delete" slist => { "someexstinghere" };
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -66,8 +95,11 @@ bundle agent cfsketch_run
 
     runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
       "__exists_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__exists_001_Packages_installed_installed_metadata", @(cfsketch_run.__exists_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__exists_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___exists_001_Packages_installed_installed";
+    runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
+      "__nonexist_002_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__nonexist_002_Packages_installed_installed_metadata", @(cfsketch_run.__nonexist_002_Packages_installed_installed_pkgs_add), @(cfsketch_run.__nonexist_002_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___nonexist_002_Packages_installed_installed";
 
   reports:
     inform_mode::
       "activation __exists_001_Packages_installed_installed could not run because it requires classes (debian)" ifvarclass => "inform_mode.!((debian))";
+      "activation __nonexist_002_Packages_installed_installed could not run because it requires classes (debian)" ifvarclass => "inform_mode.!((debian))";
 }
