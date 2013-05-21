@@ -26,6 +26,8 @@ body executor control
 # The full path and command to the executable run by default (overriding builtin).
 # cf-twin needs its own safe environment because of the update mechanism
 
+ schedule => { "any" };
+
  windows::
   exec_command => "$(sys.cf_twin) -f \"$(sys.workdir)\inputs\update.cf\" & $(sys.cf_agent)";
 

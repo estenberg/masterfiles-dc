@@ -22,4 +22,6 @@ body hub control
   # hub_schedule => { "Min00", "Min30", "(Evening|Night).Min45_50" };
   # port => "5308";
 
+  hub_schedule => { "any" };
+
 }
