@@ -59,6 +59,35 @@ bundle agent cfsketch_run
       # list 'pkgs_delete' from definition 8ff5133cc9d50f154f701fadd03123b0, activation __tester_001_Packages_installed_installed
       "__tester_001_Packages_installed_installed_pkgs_delete" slist => { "none" };
 
+      # array 'metadata' from definition sketch metadata, activation __failed_test_002_Packages_installed_installed
+      "__failed_test_002_Packages_installed_installed_metadata[activation][identifier]" string => "failed test";
+      "__failed_test_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1369265199";
+      "__failed_test_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__failed_test_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__failed_test_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__failed_test_002_Packages_installed_installed_metadata[api][pkgs_delete][type]" string => "list";
+      "__failed_test_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__failed_test_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__failed_test_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__failed_test_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__failed_test_002_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__failed_test_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__failed_test_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__failed_test_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__failed_test_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__failed_test_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__failed_test_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__failed_test_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__failed_test_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__failed_test_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__failed_test_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_add' from definition 19d18f708c541c530e0bb9478bc47b41, activation __failed_test_002_Packages_installed_installed
+      "__failed_test_002_Packages_installed_installed_pkgs_add" slist => { "nonexistant" };
+
+      # list 'pkgs_delete' from definition 19d18f708c541c530e0bb9478bc47b41, activation __failed_test_002_Packages_installed_installed
+      "__failed_test_002_Packages_installed_installed_pkgs_delete" slist => { "noneither" };
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -66,8 +95,11 @@ bundle agent cfsketch_run
 
     runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
       "__tester_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__tester_001_Packages_installed_installed_metadata", @(cfsketch_run.__tester_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__tester_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___tester_001_Packages_installed_installed";
+    runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
+      "__failed_test_002_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__failed_test_002_Packages_installed_installed_metadata", @(cfsketch_run.__failed_test_002_Packages_installed_installed_pkgs_add), @(cfsketch_run.__failed_test_002_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___failed_test_002_Packages_installed_installed";
 
   reports:
     inform_mode::
       "activation __tester_001_Packages_installed_installed could not run because it requires classes (debian)" ifvarclass => "inform_mode.!((debian))";
+      "activation __failed_test_002_Packages_installed_installed could not run because it requires classes (debian)" ifvarclass => "inform_mode.!((debian))";
 }
