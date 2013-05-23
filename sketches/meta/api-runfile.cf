@@ -2,20 +2,6 @@
 
 # environment common bundles
 
-# environment e206a54e97690cce50cc872dd70ee896
-bundle common e206a54e97690cce50cc872dd70ee896
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_e206a54e97690cce50cc872dd70ee896_activated" and => { classmatch("linux") };
-      "runenv_e206a54e97690cce50cc872dd70ee896_test" expression => "!any";
-      "runenv_e206a54e97690cce50cc872dd70ee896_verbose" expression => "!any";
-}
-
 # environment ef51ba192a3dfe76f23605c3c03bd6e8
 bundle common ef51ba192a3dfe76f23605c3c03bd6e8
 {
@@ -28,6 +14,20 @@ bundle common ef51ba192a3dfe76f23605c3c03bd6e8
       "runenv_ef51ba192a3dfe76f23605c3c03bd6e8_activated" and => { classmatch("solaris.*") };
       "runenv_ef51ba192a3dfe76f23605c3c03bd6e8_test" expression => "!any";
       "runenv_ef51ba192a3dfe76f23605c3c03bd6e8_verbose" expression => "!any";
+}
+
+# environment cd0e4f56736e74bd8143d3128088ae67
+bundle common cd0e4f56736e74bd8143d3128088ae67
+{
+  vars:
+      "activated" string => "--'activated' value passed as a class function--";
+      "env_vars" slist => { "activated", "test", "verbose" };
+      "test" string => "";
+      "verbose" string => "";
+  classes:
+      "runenv_cd0e4f56736e74bd8143d3128088ae67_activated" and => { classmatch("debian_squeeze") };
+      "runenv_cd0e4f56736e74bd8143d3128088ae67_test" expression => "!any";
+      "runenv_cd0e4f56736e74bd8143d3128088ae67_verbose" expression => "!any";
 }
 
 
@@ -44,69 +44,69 @@ bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __testing_again_001_System_set_hostname_set
-      "__testing_again_001_System_set_hostname_set_metadata[activation][identifier]" string => "testing_again";
-      "__testing_again_001_System_set_hostname_set_metadata[activation][timestamp]" string => "1369301792";
-      "__testing_again_001_System_set_hostname_set_metadata[api][][type]" string => "bundle_options";
-      "__testing_again_001_System_set_hostname_set_metadata[api][domainname][type]" string => "return";
-      "__testing_again_001_System_set_hostname_set_metadata[api][hostname][type]" string => "return";
-      "__testing_again_001_System_set_hostname_set_metadata[api][metadata][type]" string => "metadata";
-      "__testing_again_001_System_set_hostname_set_metadata[api][runenv][type]" string => "environment";
-      "__testing_again_001_System_set_hostname_set_metadata[authors]" slist => { "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__testing_again_001_System_set_hostname_set_metadata[bundle_options][single_use]" string => "1";
-      "__testing_again_001_System_set_hostname_set_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__testing_again_001_System_set_hostname_set_metadata[license]" string => "MIT";
-      "__testing_again_001_System_set_hostname_set_metadata[location]" string => "sketches/system/set_hostname";
-      "__testing_again_001_System_set_hostname_set_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
-      "__testing_again_001_System_set_hostname_set_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__testing_again_001_System_set_hostname_set_metadata[manifest_docs]" slist => { "README.md" };
-      "__testing_again_001_System_set_hostname_set_metadata[manifest_exe]" slist => { "cf_null" };
-      "__testing_again_001_System_set_hostname_set_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
-      "__testing_again_001_System_set_hostname_set_metadata[manifest_test]" slist => { "cf_null" };
-      "__testing_again_001_System_set_hostname_set_metadata[name]" string => "System::set_hostname";
-      "__testing_again_001_System_set_hostname_set_metadata[tags]" slist => { "cfdc", "enterprise_compatible" };
-      "__testing_again_001_System_set_hostname_set_metadata[version]" string => "1.05.2";
+      # array 'metadata' from definition sketch metadata, activation __fizz_buzz_001_System_set_hostname_set
+      "__fizz_buzz_001_System_set_hostname_set_metadata[activation][identifier]" string => "fizz_buzz";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[activation][timestamp]" string => "1369304313";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[api][][type]" string => "bundle_options";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[api][domainname][type]" string => "return";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[api][hostname][type]" string => "return";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[api][metadata][type]" string => "metadata";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[api][runenv][type]" string => "environment";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[authors]" slist => { "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[bundle_options][single_use]" string => "1";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[license]" string => "MIT";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[location]" string => "sketches/system/set_hostname";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[manifest_docs]" slist => { "README.md" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[manifest_exe]" slist => { "cf_null" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[manifest_test]" slist => { "cf_null" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[name]" string => "System::set_hostname";
+      "__fizz_buzz_001_System_set_hostname_set_metadata[tags]" slist => { "cfdc", "enterprise_compatible" };
+      "__fizz_buzz_001_System_set_hostname_set_metadata[version]" string => "1.05.2";
 
-      # array 'metadata' from definition sketch metadata, activation __fizz_buzz_002_System_set_hostname_set
-      "__fizz_buzz_002_System_set_hostname_set_metadata[activation][identifier]" string => "fizz_buzz";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[activation][timestamp]" string => "1369304313";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[api][][type]" string => "bundle_options";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[api][domainname][type]" string => "return";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[api][hostname][type]" string => "return";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[api][metadata][type]" string => "metadata";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[api][runenv][type]" string => "environment";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[authors]" slist => { "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[bundle_options][single_use]" string => "1";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[license]" string => "MIT";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[location]" string => "sketches/system/set_hostname";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[manifest_docs]" slist => { "README.md" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[manifest_exe]" slist => { "cf_null" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[manifest_test]" slist => { "cf_null" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[name]" string => "System::set_hostname";
-      "__fizz_buzz_002_System_set_hostname_set_metadata[tags]" slist => { "cfdc", "enterprise_compatible" };
-      "__fizz_buzz_002_System_set_hostname_set_metadata[version]" string => "1.05.2";
+      # array 'metadata' from definition sketch metadata, activation __testing_again_002_System_set_hostname_set
+      "__testing_again_002_System_set_hostname_set_metadata[activation][identifier]" string => "testing_again";
+      "__testing_again_002_System_set_hostname_set_metadata[activation][timestamp]" string => "1369309348";
+      "__testing_again_002_System_set_hostname_set_metadata[api][][type]" string => "bundle_options";
+      "__testing_again_002_System_set_hostname_set_metadata[api][domainname][type]" string => "return";
+      "__testing_again_002_System_set_hostname_set_metadata[api][hostname][type]" string => "return";
+      "__testing_again_002_System_set_hostname_set_metadata[api][metadata][type]" string => "metadata";
+      "__testing_again_002_System_set_hostname_set_metadata[api][runenv][type]" string => "environment";
+      "__testing_again_002_System_set_hostname_set_metadata[authors]" slist => { "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__testing_again_002_System_set_hostname_set_metadata[bundle_options][single_use]" string => "1";
+      "__testing_again_002_System_set_hostname_set_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__testing_again_002_System_set_hostname_set_metadata[license]" string => "MIT";
+      "__testing_again_002_System_set_hostname_set_metadata[location]" string => "sketches/system/set_hostname";
+      "__testing_again_002_System_set_hostname_set_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
+      "__testing_again_002_System_set_hostname_set_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__testing_again_002_System_set_hostname_set_metadata[manifest_docs]" slist => { "README.md" };
+      "__testing_again_002_System_set_hostname_set_metadata[manifest_exe]" slist => { "cf_null" };
+      "__testing_again_002_System_set_hostname_set_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
+      "__testing_again_002_System_set_hostname_set_metadata[manifest_test]" slist => { "cf_null" };
+      "__testing_again_002_System_set_hostname_set_metadata[name]" string => "System::set_hostname";
+      "__testing_again_002_System_set_hostname_set_metadata[tags]" slist => { "cfdc", "enterprise_compatible" };
+      "__testing_again_002_System_set_hostname_set_metadata[version]" string => "1.05.2";
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "e206a54e97690cce50cc872dd70ee896" usebundle => "e206a54e97690cce50cc872dd70ee896";
       "ef51ba192a3dfe76f23605c3c03bd6e8" usebundle => "ef51ba192a3dfe76f23605c3c03bd6e8";
+      "cd0e4f56736e74bd8143d3128088ae67" usebundle => "cd0e4f56736e74bd8143d3128088ae67";
 
-    runenv_e206a54e97690cce50cc872dd70ee896_activated::
-      "__testing_again_001_System_set_hostname_set" usebundle => cfdc_hostname:set("e206a54e97690cce50cc872dd70ee896", "default:cfsketch_run.__testing_again_001_System_set_hostname_set_metadata", "myhost", "cfengine.com"), ifvarclass => "(darwin|debian|gentoo|redhat)", useresult => "return___testing_again_001_System_set_hostname_set";
     runenv_ef51ba192a3dfe76f23605c3c03bd6e8_activated::
-      "__fizz_buzz_002_System_set_hostname_set" usebundle => cfdc_hostname:set("ef51ba192a3dfe76f23605c3c03bd6e8", "default:cfsketch_run.__fizz_buzz_002_System_set_hostname_set_metadata", "myhost", "example.com"), ifvarclass => "(darwin|debian|gentoo|redhat)", useresult => "return___fizz_buzz_002_System_set_hostname_set";
+      "__fizz_buzz_001_System_set_hostname_set" usebundle => cfdc_hostname:set("ef51ba192a3dfe76f23605c3c03bd6e8", "default:cfsketch_run.__fizz_buzz_001_System_set_hostname_set_metadata", "myhost", "example.com"), ifvarclass => "(darwin|debian|gentoo|redhat)", useresult => "return___fizz_buzz_001_System_set_hostname_set";
+    runenv_cd0e4f56736e74bd8143d3128088ae67_activated::
+      "__testing_again_002_System_set_hostname_set" usebundle => cfdc_hostname:set("cd0e4f56736e74bd8143d3128088ae67", "default:cfsketch_run.__testing_again_002_System_set_hostname_set_metadata", "yourhost", "cfengine.com"), ifvarclass => "(darwin|debian|gentoo|redhat)", useresult => "return___testing_again_002_System_set_hostname_set";
 
   reports:
     inform_mode::
-      "activation __testing_again_001_System_set_hostname_set returned hostname = $(return___testing_again_001_System_set_hostname_set[hostname])";
-      "activation __testing_again_001_System_set_hostname_set returned domainname = $(return___testing_again_001_System_set_hostname_set[domainname])";
-      "activation __testing_again_001_System_set_hostname_set could not run because it requires classes (darwin|debian|gentoo|redhat)" ifvarclass => "inform_mode.!((darwin|debian|gentoo|redhat))";
-      "activation __fizz_buzz_002_System_set_hostname_set returned hostname = $(return___fizz_buzz_002_System_set_hostname_set[hostname])";
-      "activation __fizz_buzz_002_System_set_hostname_set returned domainname = $(return___fizz_buzz_002_System_set_hostname_set[domainname])";
-      "activation __fizz_buzz_002_System_set_hostname_set could not run because it requires classes (darwin|debian|gentoo|redhat)" ifvarclass => "inform_mode.!((darwin|debian|gentoo|redhat))";
+      "activation __fizz_buzz_001_System_set_hostname_set returned hostname = $(return___fizz_buzz_001_System_set_hostname_set[hostname])";
+      "activation __fizz_buzz_001_System_set_hostname_set returned domainname = $(return___fizz_buzz_001_System_set_hostname_set[domainname])";
+      "activation __fizz_buzz_001_System_set_hostname_set could not run because it requires classes (darwin|debian|gentoo|redhat)" ifvarclass => "inform_mode.!((darwin|debian|gentoo|redhat))";
+      "activation __testing_again_002_System_set_hostname_set returned hostname = $(return___testing_again_002_System_set_hostname_set[hostname])";
+      "activation __testing_again_002_System_set_hostname_set returned domainname = $(return___testing_again_002_System_set_hostname_set[domainname])";
+      "activation __testing_again_002_System_set_hostname_set could not run because it requires classes (darwin|debian|gentoo|redhat)" ifvarclass => "inform_mode.!((darwin|debian|gentoo|redhat))";
 }
