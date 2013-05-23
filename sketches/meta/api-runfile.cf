@@ -156,6 +156,29 @@ bundle agent cfsketch_run
       "__Activate_Debian_004_System_set_hostname_set_metadata[tags]" slist => { "cfdc", "enterprise_compatible" };
       "__Activate_Debian_004_System_set_hostname_set_metadata[version]" string => "1.05.2";
 
+      # array 'metadata' from definition sketch metadata, activation __khkh_005_System_set_hostname_set
+      "__khkh_005_System_set_hostname_set_metadata[activation][identifier]" string => "khkh";
+      "__khkh_005_System_set_hostname_set_metadata[activation][timestamp]" string => "1369313230";
+      "__khkh_005_System_set_hostname_set_metadata[api][][type]" string => "bundle_options";
+      "__khkh_005_System_set_hostname_set_metadata[api][domainname][type]" string => "return";
+      "__khkh_005_System_set_hostname_set_metadata[api][hostname][type]" string => "return";
+      "__khkh_005_System_set_hostname_set_metadata[api][metadata][type]" string => "metadata";
+      "__khkh_005_System_set_hostname_set_metadata[api][runenv][type]" string => "environment";
+      "__khkh_005_System_set_hostname_set_metadata[authors]" slist => { "Nick Anderson <nick@cmdln.org>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__khkh_005_System_set_hostname_set_metadata[bundle_options][single_use]" string => "1";
+      "__khkh_005_System_set_hostname_set_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__khkh_005_System_set_hostname_set_metadata[license]" string => "MIT";
+      "__khkh_005_System_set_hostname_set_metadata[location]" string => "sketches/system/set_hostname";
+      "__khkh_005_System_set_hostname_set_metadata[manifest]" slist => { "README.md", "changelog", "main.cf", "params/example.json", "test.cf" };
+      "__khkh_005_System_set_hostname_set_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__khkh_005_System_set_hostname_set_metadata[manifest_docs]" slist => { "README.md" };
+      "__khkh_005_System_set_hostname_set_metadata[manifest_exe]" slist => { "cf_null" };
+      "__khkh_005_System_set_hostname_set_metadata[manifest_extra]" slist => { "changelog", "params/example.json" };
+      "__khkh_005_System_set_hostname_set_metadata[manifest_test]" slist => { "cf_null" };
+      "__khkh_005_System_set_hostname_set_metadata[name]" string => "System::set_hostname";
+      "__khkh_005_System_set_hostname_set_metadata[tags]" slist => { "cfdc", "enterprise_compatible" };
+      "__khkh_005_System_set_hostname_set_metadata[version]" string => "1.05.2";
+
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -171,6 +194,8 @@ bundle agent cfsketch_run
       "__Activate_Again_1_003_System_set_hostname_set" usebundle => cfdc_hostname:set("0f4137ed1502b5045d6083aa258b5c42", "default:cfsketch_run.__Activate_Again_1_003_System_set_hostname_set_metadata", "ExampleHostName", "example.com"), ifvarclass => "(darwin|debian|gentoo|redhat)", useresult => "return___Activate_Again_1_003_System_set_hostname_set";
     runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
       "__Activate_Debian_004_System_set_hostname_set" usebundle => cfdc_hostname:set("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__Activate_Debian_004_System_set_hostname_set_metadata", "myDebianHost2", "eg.example.com"), ifvarclass => "(darwin|debian|gentoo|redhat)", useresult => "return___Activate_Debian_004_System_set_hostname_set";
+    runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
+      "__khkh_005_System_set_hostname_set" usebundle => cfdc_hostname:set("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__khkh_005_System_set_hostname_set_metadata", "myhost3", "eg.example.com"), ifvarclass => "(darwin|debian|gentoo|redhat)", useresult => "return___khkh_005_System_set_hostname_set";
 
   reports:
     inform_mode::
@@ -184,4 +209,7 @@ bundle agent cfsketch_run
       "activation __Activate_Debian_004_System_set_hostname_set returned hostname = $(return___Activate_Debian_004_System_set_hostname_set[hostname])";
       "activation __Activate_Debian_004_System_set_hostname_set returned domainname = $(return___Activate_Debian_004_System_set_hostname_set[domainname])";
       "activation __Activate_Debian_004_System_set_hostname_set could not run because it requires classes (darwin|debian|gentoo|redhat)" ifvarclass => "inform_mode.!((darwin|debian|gentoo|redhat))";
+      "activation __khkh_005_System_set_hostname_set returned hostname = $(return___khkh_005_System_set_hostname_set[hostname])";
+      "activation __khkh_005_System_set_hostname_set returned domainname = $(return___khkh_005_System_set_hostname_set[domainname])";
+      "activation __khkh_005_System_set_hostname_set could not run because it requires classes (darwin|debian|gentoo|redhat)" ifvarclass => "inform_mode.!((darwin|debian|gentoo|redhat))";
 }
