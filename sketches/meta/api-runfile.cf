@@ -60,7 +60,7 @@ bundle agent cfsketch_run
 
       # array 'metadata' from definition sketch metadata, activation __Activation1_001_Packages_installed_installed
       "__Activation1_001_Packages_installed_installed_metadata[activation][identifier]" string => "Activation1";
-      "__Activation1_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369312781";
+      "__Activation1_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369313813";
       "__Activation1_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
       "__Activation1_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
       "__Activation1_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
@@ -81,11 +81,11 @@ bundle agent cfsketch_run
       "__Activation1_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
       "__Activation1_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_add' from definition 8474e62b21f160793542fa2dfdfc9962, activation __Activation1_001_Packages_installed_installed
-      "__Activation1_001_Packages_installed_installed_pkgs_add" slist => { "apache2" };
+      # list 'pkgs_add' from definition 0dee27a6c091d56d53e4afa6b3934a11, activation __Activation1_001_Packages_installed_installed
+      "__Activation1_001_Packages_installed_installed_pkgs_add" slist => { "telnetd" };
 
-      # list 'pkgs_delete' from definition 8474e62b21f160793542fa2dfdfc9962, activation __Activation1_001_Packages_installed_installed
-      "__Activation1_001_Packages_installed_installed_pkgs_delete" slist => { "telnetd" };
+      # list 'pkgs_delete' from definition 0dee27a6c091d56d53e4afa6b3934a11, activation __Activation1_001_Packages_installed_installed
+      "__Activation1_001_Packages_installed_installed_pkgs_delete" slist => { "apache2" };
 
       # array 'metadata' from definition sketch metadata, activation __testing_again_002_System_set_hostname_set
       "__testing_again_002_System_set_hostname_set_metadata[activation][identifier]" string => "testing_again";
