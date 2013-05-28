@@ -35,12 +35,10 @@ bundle agent cfe_internal_processes
 #
 
  classes:
-#  NOTE: We do not restart by default, can be added if desired
-#  "restart_cf" expression => "Monday.Hr05.Min00_05",
-#                  comment => "Define a class to restart cfengine processes",
-#                   handle => "cfe_internal_processes_classes_restart_cf";
+  "restart_cf" expression => "Hr05.Min00_05",
+                  comment => "Define a class to restart cfengine processes",
+                   handle => "cfe_internal_processes_classes_restart_cf";
 
-#
 
  processes:
 
@@ -91,7 +89,7 @@ bundle agent cfe_internal_processes
 
   restart_cf::
     
-   "Reloaded configuration of all Cfengine components",
+   "Reloaded configuration of all Cfengine components"
       comment => "Alert restarting message",
        handle => "cfe_internal_processes_reports";
 
