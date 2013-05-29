@@ -18,7 +18,7 @@ body common control
 
                   # Agent bundle
                     "cfe_internal_management",   # See cfe_internal/CFE_cfengine.cf
-                    "cfe_inernal_processes",
+                    "cfe_internal_processes",
                     "service_catalogue",
                     "example_use_goals",         # See cfe_internal/example_use_goals.cf
 
