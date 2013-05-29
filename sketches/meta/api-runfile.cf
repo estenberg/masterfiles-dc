@@ -2,8 +2,8 @@
 
 # environment common bundles
 
-# environment 743d77803fee4a94da7a67d2801cb55e
-bundle common 743d77803fee4a94da7a67d2801cb55e
+# environment 547aa71fbe22e8ef6c03884ed2c45e75
+bundle common 547aa71fbe22e8ef6c03884ed2c45e75
 {
   vars:
       "activated" string => "--'activated' value passed as a class function--";
@@ -11,9 +11,9 @@ bundle common 743d77803fee4a94da7a67d2801cb55e
       "test" string => "";
       "verbose" string => "";
   classes:
-      "runenv_743d77803fee4a94da7a67d2801cb55e_activated" and => { classmatch("ipv4_10_202_10|ipv4_10_194") };
-      "runenv_743d77803fee4a94da7a67d2801cb55e_test" expression => "!any";
-      "runenv_743d77803fee4a94da7a67d2801cb55e_verbose" expression => "!any";
+      "runenv_547aa71fbe22e8ef6c03884ed2c45e75_activated" and => { classmatch("ipv4_10_202_10|ipv4_10_194|ipv4_10_202_102|ipv4_10_114") };
+      "runenv_547aa71fbe22e8ef6c03884ed2c45e75_test" expression => "!any";
+      "runenv_547aa71fbe22e8ef6c03884ed2c45e75_verbose" expression => "!any";
 }
 
 
@@ -32,7 +32,7 @@ bundle agent cfsketch_run
 
       # array 'metadata' from definition sketch metadata, activation __Install_development_update_001_Packages_installed_installed
       "__Install_development_update_001_Packages_installed_installed_metadata[activation][identifier]" string => "Install development update";
-      "__Install_development_update_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369853511";
+      "__Install_development_update_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369855017";
       "__Install_development_update_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
       "__Install_development_update_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
       "__Install_development_update_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
@@ -53,19 +53,19 @@ bundle agent cfsketch_run
       "__Install_development_update_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
       "__Install_development_update_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_add' from definition 7a8631da527f21e6dd69d005f8165b8f, activation __Install_development_update_001_Packages_installed_installed
+      # list 'pkgs_add' from definition 6efb0ea579ab730cd378c0cb4cbed6a0, activation __Install_development_update_001_Packages_installed_installed
       "__Install_development_update_001_Packages_installed_installed_pkgs_add" slist => { "vim", "nano" };
 
-      # list 'pkgs_delete' from definition 7a8631da527f21e6dd69d005f8165b8f, activation __Install_development_update_001_Packages_installed_installed
+      # list 'pkgs_delete' from definition 6efb0ea579ab730cd378c0cb4cbed6a0, activation __Install_development_update_001_Packages_installed_installed
       "__Install_development_update_001_Packages_installed_installed_pkgs_delete" slist => { "telnet" };
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "743d77803fee4a94da7a67d2801cb55e" usebundle => "743d77803fee4a94da7a67d2801cb55e";
+      "547aa71fbe22e8ef6c03884ed2c45e75" usebundle => "547aa71fbe22e8ef6c03884ed2c45e75";
 
-    runenv_743d77803fee4a94da7a67d2801cb55e_activated::
-      "__Install_development_update_001_Packages_installed_installed" usebundle => cfdc_packages:installed("743d77803fee4a94da7a67d2801cb55e", "default:cfsketch_run.__Install_development_update_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_development_update_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__Install_development_update_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___Install_development_update_001_Packages_installed_installed";
+    runenv_547aa71fbe22e8ef6c03884ed2c45e75_activated::
+      "__Install_development_update_001_Packages_installed_installed" usebundle => cfdc_packages:installed("547aa71fbe22e8ef6c03884ed2c45e75", "default:cfsketch_run.__Install_development_update_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_development_update_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__Install_development_update_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___Install_development_update_001_Packages_installed_installed";
 
   reports:
     inform_mode::
