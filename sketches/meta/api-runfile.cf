@@ -16,8 +16,8 @@ bundle common e206a54e97690cce50cc872dd70ee896
       "runenv_e206a54e97690cce50cc872dd70ee896_verbose" expression => "!any";
 }
 
-# environment 743d77803fee4a94da7a67d2801cb55e
-bundle common 743d77803fee4a94da7a67d2801cb55e
+# environment 547aa71fbe22e8ef6c03884ed2c45e75
+bundle common 547aa71fbe22e8ef6c03884ed2c45e75
 {
   vars:
       "activated" string => "--'activated' value passed as a class function--";
@@ -25,9 +25,9 @@ bundle common 743d77803fee4a94da7a67d2801cb55e
       "test" string => "";
       "verbose" string => "";
   classes:
-      "runenv_743d77803fee4a94da7a67d2801cb55e_activated" and => { classmatch("ipv4_10_202_10|ipv4_10_194") };
-      "runenv_743d77803fee4a94da7a67d2801cb55e_test" expression => "!any";
-      "runenv_743d77803fee4a94da7a67d2801cb55e_verbose" expression => "!any";
+      "runenv_547aa71fbe22e8ef6c03884ed2c45e75_activated" and => { classmatch("ipv4_10_202_10|ipv4_10_194|ipv4_10_202_102|ipv4_10_114") };
+      "runenv_547aa71fbe22e8ef6c03884ed2c45e75_test" expression => "!any";
+      "runenv_547aa71fbe22e8ef6c03884ed2c45e75_verbose" expression => "!any";
 }
 
 
@@ -46,7 +46,7 @@ bundle agent cfsketch_run
 
       # array 'metadata' from definition sketch metadata, activation __Install_packages_001_Packages_installed_installed
       "__Install_packages_001_Packages_installed_installed_metadata[activation][identifier]" string => "Install packages";
-      "__Install_packages_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369859879";
+      "__Install_packages_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369860331";
       "__Install_packages_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
       "__Install_packages_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
       "__Install_packages_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
@@ -67,10 +67,10 @@ bundle agent cfsketch_run
       "__Install_packages_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
       "__Install_packages_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_add' from definition 665bc2a476bd8e4f833dc12976aedba2, activation __Install_packages_001_Packages_installed_installed
+      # list 'pkgs_add' from definition 8619e710cb8155003ea1b3f355e06e5e, activation __Install_packages_001_Packages_installed_installed
       "__Install_packages_001_Packages_installed_installed_pkgs_add" slist => { "vim", "nano" };
 
-      # list 'pkgs_delete' from definition 665bc2a476bd8e4f833dc12976aedba2, activation __Install_packages_001_Packages_installed_installed
+      # list 'pkgs_delete' from definition 8619e710cb8155003ea1b3f355e06e5e, activation __Install_packages_001_Packages_installed_installed
       "__Install_packages_001_Packages_installed_installed_pkgs_delete" slist => { "telnetd" };
 
       # array 'metadata' from definition sketch metadata, activation __Nicks_Test_Watching_Temp_002_Security_file_integrity_watch
@@ -103,10 +103,10 @@ bundle agent cfsketch_run
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
       "e206a54e97690cce50cc872dd70ee896" usebundle => "e206a54e97690cce50cc872dd70ee896";
-      "743d77803fee4a94da7a67d2801cb55e" usebundle => "743d77803fee4a94da7a67d2801cb55e";
+      "547aa71fbe22e8ef6c03884ed2c45e75" usebundle => "547aa71fbe22e8ef6c03884ed2c45e75";
 
-    runenv_743d77803fee4a94da7a67d2801cb55e_activated::
-      "__Install_packages_001_Packages_installed_installed" usebundle => cfdc_packages:installed("743d77803fee4a94da7a67d2801cb55e", "default:cfsketch_run.__Install_packages_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_packages_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__Install_packages_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___Install_packages_001_Packages_installed_installed";
+    runenv_547aa71fbe22e8ef6c03884ed2c45e75_activated::
+      "__Install_packages_001_Packages_installed_installed" usebundle => cfdc_packages:installed("547aa71fbe22e8ef6c03884ed2c45e75", "default:cfsketch_run.__Install_packages_001_Packages_installed_installed_metadata", @(cfsketch_run.__Install_packages_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__Install_packages_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debian)", useresult => "return___Install_packages_001_Packages_installed_installed";
     runenv_e206a54e97690cce50cc872dd70ee896_activated::
       "__Nicks_Test_Watching_Temp_002_Security_file_integrity_watch" usebundle => cfdc_file_integrity:watch("e206a54e97690cce50cc872dd70ee896", "default:cfsketch_run.__Nicks_Test_Watching_Temp_002_Security_file_integrity_watch_metadata", @(cfsketch_run.__Nicks_Test_Watching_Temp_002_Security_file_integrity_watch_watch), "sha256", "5"), ifvarclass => "(linux|windows)", useresult => "return___Nicks_Test_Watching_Temp_002_Security_file_integrity_watch";
 
