@@ -2,20 +2,6 @@
 
 # environment common bundles
 
-# environment 1d41c853af58d3a7ae54990ce29417d8
-bundle common 1d41c853af58d3a7ae54990ce29417d8
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_1d41c853af58d3a7ae54990ce29417d8_activated" and => { classmatch("ubuntu") };
-      "runenv_1d41c853af58d3a7ae54990ce29417d8_test" expression => "!any";
-      "runenv_1d41c853af58d3a7ae54990ce29417d8_verbose" expression => "!any";
-}
-
 # environment e206a54e97690cce50cc872dd70ee896
 bundle common e206a54e97690cce50cc872dd70ee896
 {
@@ -37,82 +23,49 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/security/file_integrity/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/security/file_integrity/main.cf" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __varnish_interface_update_001_Packages_installed_installed
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[activation][identifier]" string => "varnish interface update";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1369334910";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[api][pkgs_delete][type]" string => "list";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__varnish_interface_update_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __NicksTest_001_Security_file_integrity_watch
+      "__NicksTest_001_Security_file_integrity_watch_metadata[activation][identifier]" string => "NicksTest";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[activation][timestamp]" string => "1369849645";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[api][hash_algorithm][type]" string => "string";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[api][ifelapsed][type]" string => "string";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[api][metadata][type]" string => "metadata";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[api][paths][type]" string => "return";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[api][runenv][type]" string => "environment";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[api][watch][type]" string => "list";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[authors]" slist => { "Eystein Stenberg <eystein@cfengine.com>" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[license]" string => "MIT";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[location]" string => "sketches/security/file_integrity";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[manifest]" slist => { "README.md", "main.cf", "params/pcidss_v2.json" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[manifest_cf]" slist => { "main.cf" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[manifest_docs]" slist => { "README.md" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[manifest_exe]" slist => { "cf_null" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[manifest_extra]" slist => { "params/pcidss_v2.json" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[manifest_test]" slist => { "cf_null" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[name]" string => "Security::file_integrity";
+      "__NicksTest_001_Security_file_integrity_watch_metadata[tags]" slist => { "cfdc", "pcidss", "pcidss_v2", "pcidss_v2_sec_11_5", "enterprise_compatible" };
+      "__NicksTest_001_Security_file_integrity_watch_metadata[version]" string => "1";
 
-      # list 'pkgs_add' from definition 34306344b8aa3ad558df6ccbf8ef31bb, activation __varnish_interface_update_001_Packages_installed_installed
-      "__varnish_interface_update_001_Packages_installed_installed_pkgs_add" slist => { "update1", "update2", "update4", "update7" };
-
-      # list 'pkgs_delete' from definition 34306344b8aa3ad558df6ccbf8ef31bb, activation __varnish_interface_update_001_Packages_installed_installed
-      "__varnish_interface_update_001_Packages_installed_installed_pkgs_delete" slist => { "update3", "update5", "update6" };
-
-      # array 'metadata' from definition sketch metadata, activation __NicksTest_002_Security_file_integrity_watch
-      "__NicksTest_002_Security_file_integrity_watch_metadata[activation][identifier]" string => "NicksTest";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[activation][timestamp]" string => "1369849645";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[api][hash_algorithm][type]" string => "string";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[api][ifelapsed][type]" string => "string";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[api][metadata][type]" string => "metadata";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[api][paths][type]" string => "return";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[api][runenv][type]" string => "environment";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[api][watch][type]" string => "list";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[authors]" slist => { "Eystein Stenberg <eystein@cfengine.com>" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[license]" string => "MIT";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[location]" string => "sketches/security/file_integrity";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[manifest]" slist => { "README.md", "main.cf", "params/pcidss_v2.json" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[manifest_cf]" slist => { "main.cf" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[manifest_docs]" slist => { "README.md" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[manifest_exe]" slist => { "cf_null" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[manifest_extra]" slist => { "params/pcidss_v2.json" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[manifest_test]" slist => { "cf_null" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[name]" string => "Security::file_integrity";
-      "__NicksTest_002_Security_file_integrity_watch_metadata[tags]" slist => { "cfdc", "pcidss", "pcidss_v2", "pcidss_v2_sec_11_5", "enterprise_compatible" };
-      "__NicksTest_002_Security_file_integrity_watch_metadata[version]" string => "1";
-
-      # list 'watch' from definition 361c9a8f12d75e95b90dbf21a281cdbb, activation __NicksTest_002_Security_file_integrity_watch
-      "__NicksTest_002_Security_file_integrity_watch_watch" slist => { "/tmp" };
+      # list 'watch' from definition 361c9a8f12d75e95b90dbf21a281cdbb, activation __NicksTest_001_Security_file_integrity_watch
+      "__NicksTest_001_Security_file_integrity_watch_watch" slist => { "/tmp" };
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "1d41c853af58d3a7ae54990ce29417d8" usebundle => "1d41c853af58d3a7ae54990ce29417d8";
       "e206a54e97690cce50cc872dd70ee896" usebundle => "e206a54e97690cce50cc872dd70ee896";
 
-    runenv_1d41c853af58d3a7ae54990ce29417d8_activated::
-      "__varnish_interface_update_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1d41c853af58d3a7ae54990ce29417d8", "default:cfsketch_run.__varnish_interface_update_001_Packages_installed_installed_metadata", @(cfsketch_run.__varnish_interface_update_001_Packages_installed_installed_pkgs_add), @(cfsketch_run.__varnish_interface_update_001_Packages_installed_installed_pkgs_delete)), ifvarclass => "(debuian|ubuntuu)", useresult => "return___varnish_interface_update_001_Packages_installed_installed";
     runenv_e206a54e97690cce50cc872dd70ee896_activated::
-      "__NicksTest_002_Security_file_integrity_watch" usebundle => cfdc_file_integrity:watch("e206a54e97690cce50cc872dd70ee896", "default:cfsketch_run.__NicksTest_002_Security_file_integrity_watch_metadata", @(cfsketch_run.__NicksTest_002_Security_file_integrity_watch_watch), "sha256", "5"), ifvarclass => "(linux|windows)", useresult => "return___NicksTest_002_Security_file_integrity_watch";
+      "__NicksTest_001_Security_file_integrity_watch" usebundle => cfdc_file_integrity:watch("e206a54e97690cce50cc872dd70ee896", "default:cfsketch_run.__NicksTest_001_Security_file_integrity_watch_metadata", @(cfsketch_run.__NicksTest_001_Security_file_integrity_watch_watch), "sha256", "5"), ifvarclass => "(linux|windows)", useresult => "return___NicksTest_001_Security_file_integrity_watch";
 
   reports:
     inform_mode::
-      "activation __varnish_interface_update_001_Packages_installed_installed could not run because it requires classes (debuian|ubuntuu)" ifvarclass => "inform_mode.!((debuian|ubuntuu))";
-      "activation __NicksTest_002_Security_file_integrity_watch returned paths = $(return___NicksTest_002_Security_file_integrity_watch[paths])";
-      "activation __NicksTest_002_Security_file_integrity_watch could not run because it requires classes (linux|windows)" ifvarclass => "inform_mode.!((linux|windows))";
+      "activation __NicksTest_001_Security_file_integrity_watch returned paths = $(return___NicksTest_001_Security_file_integrity_watch[paths])";
+      "activation __NicksTest_001_Security_file_integrity_watch could not run because it requires classes (linux|windows)" ifvarclass => "inform_mode.!((linux|windows))";
 }
