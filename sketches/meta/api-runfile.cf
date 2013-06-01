@@ -2,6 +2,20 @@
 
 # environment common bundles
 
+# environment 1b6aaf65758a53826053c5dd3e893e29
+bundle common 1b6aaf65758a53826053c5dd3e893e29
+{
+  vars:
+      "activated" string => "--'activated' value passed as a class function--";
+      "env_vars" slist => { "activated", "test", "verbose" };
+      "test" string => "";
+      "verbose" string => "";
+  classes:
+      "runenv_1b6aaf65758a53826053c5dd3e893e29_activated" and => { classmatch("linux") };
+      "runenv_1b6aaf65758a53826053c5dd3e893e29_test" expression => "!any";
+      "runenv_1b6aaf65758a53826053c5dd3e893e29_verbose" expression => "!any";
+}
+
 
 # activation data
 bundle common cfsketch_g
@@ -9,21 +23,49 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "cf_null" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/security/file_integrity/main.cf" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
+      # array 'metadata' from definition sketch metadata, activation __test_activation_one_file_001_Security_file_integrity_watch
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[activation][identifier]" string => "test activation one file";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[activation][timestamp]" string => "1370120181";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[api][hash_algorithm][type]" string => "string";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[api][ifelapsed][type]" string => "string";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[api][metadata][type]" string => "metadata";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[api][paths][type]" string => "return";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[api][runenv][type]" string => "environment";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[api][watch][type]" string => "list";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[authors]" slist => { "Eystein Stenberg <eystein@cfengine.com>" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[license]" string => "MIT";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[location]" string => "sketches/security/file_integrity";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[manifest]" slist => { "README.md", "main.cf", "params/pcidss_v2.json" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[manifest_cf]" slist => { "main.cf" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[manifest_docs]" slist => { "README.md" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[manifest_exe]" slist => { "cf_null" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[manifest_extra]" slist => { "params/pcidss_v2.json" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[manifest_test]" slist => { "cf_null" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[name]" string => "Security::file_integrity";
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[tags]" slist => { "cfdc", "pcidss", "pcidss_v2", "pcidss_v2_sec_11_5", "enterprise_compatible" };
+      "__test_activation_one_file_001_Security_file_integrity_watch_metadata[version]" string => "1";
 
+      # list 'watch' from definition fabef7f5e203f3b958b49756e5b1d65e, activation __test_activation_one_file_001_Security_file_integrity_watch
+      "__test_activation_one_file_001_Security_file_integrity_watch_watch" slist => { "/tmp/changes" };
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
+      "1b6aaf65758a53826053c5dd3e893e29" usebundle => "1b6aaf65758a53826053c5dd3e893e29";
 
-
+    runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
+      "__test_activation_one_file_001_Security_file_integrity_watch" usebundle => cfdc_file_integrity:watch("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__test_activation_one_file_001_Security_file_integrity_watch_metadata", @(cfsketch_run.__test_activation_one_file_001_Security_file_integrity_watch_watch), "md5", "2"), ifvarclass => "(linux|windows)", useresult => "return___test_activation_one_file_001_Security_file_integrity_watch";
 
   reports:
     inform_mode::
+      "activation __test_activation_one_file_001_Security_file_integrity_watch returned paths = $(return___test_activation_one_file_001_Security_file_integrity_watch[paths])";
+      "activation __test_activation_one_file_001_Security_file_integrity_watch could not run because it requires classes (linux|windows)" ifvarclass => "inform_mode.!((linux|windows))";
 }
