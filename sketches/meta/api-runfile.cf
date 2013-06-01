@@ -30,80 +30,55 @@ bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __nano_httpd_test_001_Packages_installed_installed
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[activation][identifier]" string => "nano httpd test";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1370117925";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__nano_httpd_test_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __apache2_test_001_Packages_installed_installed
+      "__apache2_test_001_Packages_installed_installed_metadata[activation][identifier]" string => "apache2 test";
+      "__apache2_test_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1370117977";
+      "__apache2_test_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__apache2_test_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__apache2_test_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__apache2_test_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__apache2_test_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__apache2_test_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__apache2_test_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__apache2_test_001_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__apache2_test_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__apache2_test_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__apache2_test_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__apache2_test_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__apache2_test_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__apache2_test_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__apache2_test_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__apache2_test_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__apache2_test_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__apache2_test_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_add' from definition c38e8c23b8c89adcaae5f4a2ef420b9b, activation __nano_httpd_test_001_Packages_installed_installed
-      "__nano_httpd_test_001_Packages_installed_installed_pkgs_add" slist => { "nano", "httpd" };
+      # list 'pkgs_add' from definition 995f5f4d1420c3641b444919811c9e4a, activation __apache2_test_001_Packages_installed_installed
+      "__apache2_test_001_Packages_installed_installed_pkgs_add" slist => { "apache2" };
 
-      # array 'metadata' from definition sketch metadata, activation __apache2_test_002_Packages_installed_installed
-      "__apache2_test_002_Packages_installed_installed_metadata[activation][identifier]" string => "apache2 test";
-      "__apache2_test_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1370117977";
-      "__apache2_test_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__apache2_test_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__apache2_test_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__apache2_test_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__apache2_test_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__apache2_test_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__apache2_test_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__apache2_test_002_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__apache2_test_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__apache2_test_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__apache2_test_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__apache2_test_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__apache2_test_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__apache2_test_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__apache2_test_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__apache2_test_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__apache2_test_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__apache2_test_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __one_invalid_test_002_Packages_installed_installed
+      "__one_invalid_test_002_Packages_installed_installed_metadata[activation][identifier]" string => "one invalid test";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1370118022";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__one_invalid_test_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__one_invalid_test_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_add' from definition 995f5f4d1420c3641b444919811c9e4a, activation __apache2_test_002_Packages_installed_installed
-      "__apache2_test_002_Packages_installed_installed_pkgs_add" slist => { "apache2" };
-
-      # array 'metadata' from definition sketch metadata, activation __one_invalid_test_003_Packages_installed_installed
-      "__one_invalid_test_003_Packages_installed_installed_metadata[activation][identifier]" string => "one invalid test";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[activation][timestamp]" string => "1370118022";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__one_invalid_test_003_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__one_invalid_test_003_Packages_installed_installed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_add' from definition 71d9456df16fe4a4c86ea4d144d6f45d, activation __one_invalid_test_003_Packages_installed_installed
-      "__one_invalid_test_003_Packages_installed_installed_pkgs_add" slist => { "vim", "noexistant" };
+      # list 'pkgs_add' from definition 71d9456df16fe4a4c86ea4d144d6f45d, activation __one_invalid_test_002_Packages_installed_installed
+      "__one_invalid_test_002_Packages_installed_installed_pkgs_add" slist => { "vim", "noexistant" };
 
   methods:
     any::
@@ -111,15 +86,12 @@ bundle agent cfsketch_run
       "1b6aaf65758a53826053c5dd3e893e29" usebundle => "1b6aaf65758a53826053c5dd3e893e29";
 
     runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
-      "__nano_httpd_test_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__nano_httpd_test_001_Packages_installed_installed_metadata", @(cfsketch_run.__nano_httpd_test_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___nano_httpd_test_001_Packages_installed_installed";
+      "__apache2_test_001_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__apache2_test_001_Packages_installed_installed_metadata", @(cfsketch_run.__apache2_test_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___apache2_test_001_Packages_installed_installed";
     runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
-      "__apache2_test_002_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__apache2_test_002_Packages_installed_installed_metadata", @(cfsketch_run.__apache2_test_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___apache2_test_002_Packages_installed_installed";
-    runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
-      "__one_invalid_test_003_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__one_invalid_test_003_Packages_installed_installed_metadata", @(cfsketch_run.__one_invalid_test_003_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___one_invalid_test_003_Packages_installed_installed";
+      "__one_invalid_test_002_Packages_installed_installed" usebundle => cfdc_packages:installed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__one_invalid_test_002_Packages_installed_installed_metadata", @(cfsketch_run.__one_invalid_test_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___one_invalid_test_002_Packages_installed_installed";
 
   reports:
     inform_mode::
-      "activation __nano_httpd_test_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __apache2_test_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __one_invalid_test_003_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __apache2_test_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __one_invalid_test_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
