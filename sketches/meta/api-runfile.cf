@@ -56,32 +56,6 @@ bundle agent cfsketch_run
       # list 'watch' from definition fabef7f5e203f3b958b49756e5b1d65e, activation __test_activation_one_file_001_Security_file_integrity_watch
       "__test_activation_one_file_001_Security_file_integrity_watch_watch" slist => { "/tmp/changes" };
 
-      # array 'metadata' from definition sketch metadata, activation __Test_activation_several_files_002_Security_file_integrity_watch
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[activation][identifier]" string => "Test activation several files";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[activation][timestamp]" string => "1370120252";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[api][hash_algorithm][type]" string => "string";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[api][ifelapsed][type]" string => "string";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[api][metadata][type]" string => "metadata";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[api][paths][type]" string => "return";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[api][runenv][type]" string => "environment";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[api][watch][type]" string => "list";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[authors]" slist => { "Eystein Stenberg <eystein@cfengine.com>" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[license]" string => "MIT";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[location]" string => "sketches/security/file_integrity";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[manifest]" slist => { "README.md", "main.cf", "params/pcidss_v2.json" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[manifest_cf]" slist => { "main.cf" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[manifest_docs]" slist => { "README.md" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[manifest_exe]" slist => { "cf_null" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[manifest_extra]" slist => { "params/pcidss_v2.json" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[manifest_test]" slist => { "cf_null" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[name]" string => "Security::file_integrity";
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[tags]" slist => { "cfdc", "pcidss", "pcidss_v2", "pcidss_v2_sec_11_5", "enterprise_compatible" };
-      "__Test_activation_several_files_002_Security_file_integrity_watch_metadata[version]" string => "1";
-
-      # list 'watch' from definition acea67f56a5ed7d00b057ec639e09e7b, activation __Test_activation_several_files_002_Security_file_integrity_watch
-      "__Test_activation_several_files_002_Security_file_integrity_watch_watch" slist => { "/tmp/filechanges", "/tmp/filechangesdir" };
-
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
@@ -89,13 +63,9 @@ bundle agent cfsketch_run
 
     runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
       "__test_activation_one_file_001_Security_file_integrity_watch" usebundle => cfdc_file_integrity:watch("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__test_activation_one_file_001_Security_file_integrity_watch_metadata", @(cfsketch_run.__test_activation_one_file_001_Security_file_integrity_watch_watch), "md5", "2"), ifvarclass => "(linux|windows)", useresult => "return___test_activation_one_file_001_Security_file_integrity_watch";
-    runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
-      "__Test_activation_several_files_002_Security_file_integrity_watch" usebundle => cfdc_file_integrity:watch("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__Test_activation_several_files_002_Security_file_integrity_watch_metadata", @(cfsketch_run.__Test_activation_several_files_002_Security_file_integrity_watch_watch), "sha256", "10"), ifvarclass => "(linux|windows)", useresult => "return___Test_activation_several_files_002_Security_file_integrity_watch";
 
   reports:
     inform_mode::
       "activation __test_activation_one_file_001_Security_file_integrity_watch returned paths = $(return___test_activation_one_file_001_Security_file_integrity_watch[paths])";
       "activation __test_activation_one_file_001_Security_file_integrity_watch could not run because it requires classes (linux|windows)" ifvarclass => "inform_mode.!((linux|windows))";
-      "activation __Test_activation_several_files_002_Security_file_integrity_watch returned paths = $(return___Test_activation_several_files_002_Security_file_integrity_watch[paths])";
-      "activation __Test_activation_several_files_002_Security_file_integrity_watch could not run because it requires classes (linux|windows)" ifvarclass => "inform_mode.!((linux|windows))";
 }
