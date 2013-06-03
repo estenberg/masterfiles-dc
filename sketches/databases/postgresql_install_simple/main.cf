@@ -9,8 +9,6 @@ bundle agent simple(runenv, metadata)
       "$(vars)" expression => "default:runenv_$(runenv)_$(vars)";
       "not_$(vars)" expression => "!default:runenv_$(runenv)_$(vars)";
 
-      "server" expression => strcmp("1", "1");
-
   vars:
       "vars" slist => { "@(default:$(runenv).env_vars)" };
       "$(vars)" string => "$(default:$(runenv).$(vars))";
@@ -46,29 +44,13 @@ bundle agent simple(runenv, metadata)
     !(redhat|centos|fedora)::
       "process_match" string => "[^ ]+postgres.*", policy => "free";
 
-    server.test::
+    test::
       "all_packages" slist => { "test-packages", "test-server-packages" }, policy => "free";
       "type" string => "test-server", policy => "free";
 
-    !use_only_extra_packages.server.not_test::
-      "all_packages" slist => { @(packages), @(server_packages), @(extra_packages) }, policy => "free";
+    not_test::
+      "all_packages" slist => { @(packages), @(server_packages) }, policy => "free";
       "type" string => "server", policy => "free";
-
-    use_only_extra_packages.server.not_test::
-      "all_packages" slist => { @(extra_packages) }, policy => "free";
-      "type" string => "server", policy => "free";
-
-    !server.test::
-      "all_packages" slist => { "test-packages" }, policy => "free";
-      "type" string => "test-client", policy => "free";
-
-    !use_only_extra_packages.!server.not_test::
-      "all_packages" slist => { @(packages), @(extra_packages) }, policy => "free";
-      "type" string => "client", policy => "free";
-
-    use_only_extra_packages.!server.not_test::
-      "all_packages" slist => { @(extra_packages) };
-      "type" string => "client", policy => "free";
 
     not_test::
       "mode" string => "installing", policy => "free";
@@ -95,7 +77,7 @@ bundle agent simple(runenv, metadata)
       action => default:log_repaired("stdout","PostgreSQL $(type) was installed");
 
   processes:
-    server.install_ok::
+    install_ok::
       "$(process_match)"
       comment => "Check for PostgreSQL process",
       handle => "$(activation_id)_postgresql_processes_run",
@@ -118,10 +100,8 @@ bundle agent simple(runenv, metadata)
       "$(this.bundle): Server started OK";
       "1" bundle_return_value_index => "running";
 
-    server.!start_ok::
-      "$(this.bundle): Server could not be started";
     !start_ok::
-      "0" bundle_return_value_index => "running";
+      "$(this.bundle): Server could not be started";
 
     install_ok::
       "1" bundle_return_value_index => "installed";
