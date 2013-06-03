@@ -2,20 +2,6 @@
 
 # environment common bundles
 
-# environment 1b6aaf65758a53826053c5dd3e893e29
-bundle common 1b6aaf65758a53826053c5dd3e893e29
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_1b6aaf65758a53826053c5dd3e893e29_activated" and => { classmatch("linux") };
-      "runenv_1b6aaf65758a53826053c5dd3e893e29_test" expression => "!any";
-      "runenv_1b6aaf65758a53826053c5dd3e893e29_verbose" expression => "!any";
-}
-
 
 # activation data
 bundle common cfsketch_g
@@ -23,47 +9,21 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_removed/main.cf" };
+      "inputs" slist => { "cf_null" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __remove_nano_and_vim_001_Packages_removed_removed
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[activation][identifier]" string => "remove nano and vim";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[activation][timestamp]" string => "1370291810";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[api][][type]" string => "bundle_options";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[api][metadata][type]" string => "metadata";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[api][pkgs_removed][type]" string => "list";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[api][runenv][type]" string => "environment";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[bundle_options][single_use]" string => "1";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[license]" string => "MIT";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[location]" string => "sketches/package_management/packages_removed";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[manifest_cf]" slist => { "main.cf" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[manifest_docs]" slist => { "README.md" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[manifest_test]" slist => { "cf_null" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[name]" string => "Packages::removed";
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__remove_nano_and_vim_001_Packages_removed_removed_metadata[version]" string => "1.0.0";
 
-      # list 'pkgs_removed' from definition bab7f2840aac441e78c44a038c0204f6, activation __remove_nano_and_vim_001_Packages_removed_removed
-      "__remove_nano_and_vim_001_Packages_removed_removed_pkgs_removed" slist => { "nano", "vim" };
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "1b6aaf65758a53826053c5dd3e893e29" usebundle => "1b6aaf65758a53826053c5dd3e893e29";
 
-    runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
-      "__remove_nano_and_vim_001_Packages_removed_removed" usebundle => cfdc_packages:removed("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__remove_nano_and_vim_001_Packages_removed_removed_metadata", @(cfsketch_run.__remove_nano_and_vim_001_Packages_removed_removed_pkgs_removed)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___remove_nano_and_vim_001_Packages_removed_removed";
+
 
   reports:
     inform_mode::
-      "activation __remove_nano_and_vim_001_Packages_removed_removed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
