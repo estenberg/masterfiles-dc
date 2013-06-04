@@ -2,20 +2,6 @@
 
 # environment common bundles
 
-# environment ad0efd864ab8dc9feaafcded715fb6c7
-bundle common ad0efd864ab8dc9feaafcded715fb6c7
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated" and => { classmatch("ubuntu_12_4|redhat_6") };
-      "runenv_ad0efd864ab8dc9feaafcded715fb6c7_test" expression => "!any";
-      "runenv_ad0efd864ab8dc9feaafcded715fb6c7_verbose" expression => "!any";
-}
-
 
 # activation data
 bundle common cfsketch_g
@@ -23,45 +9,21 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib-3.5.0/library.cf", "sketches/libraries/dclib/library.cf", "sketches/databases/postgresql_install_simple/main.cf" };
+      "inputs" slist => { "cf_null" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-      # array 'mymetadata' from definition sketch metadata, activation __ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][identifier]" string => "ubuntu 12 and redhat 6";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][timestamp]" string => "1370313570";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][running][type]" string => "return";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[license]" string => "MIT";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[location]" string => "sketches/databases/postgresql_install_simple";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[name]" string => "Database::Install::PostgreSQL::Simple";
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "postgresql", "enterprise_compatible" };
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata[version]" string => "1.1";
+
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "ad0efd864ab8dc9feaafcded715fb6c7" usebundle => "ad0efd864ab8dc9feaafcded715fb6c7";
 
-    runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated::
-      "__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple" usebundle => cfdc_db_postgresql:simple("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple_mymetadata"), ifvarclass => "(redhat_6|ubuntu_12_4)", useresult => "return___ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple";
+
 
   reports:
     inform_mode::
-      "activation __ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple returned installed = $(return___ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple[installed])";
-      "activation __ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple returned running = $(return___ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple[running])";
-      "activation __ubuntu_12_and_redhat_6_001_Database_Install_PostgreSQL_Simple_simple could not run because it requires classes (redhat_6|ubuntu_12_4)" ifvarclass => "inform_mode.!((redhat_6|ubuntu_12_4))";
 }
