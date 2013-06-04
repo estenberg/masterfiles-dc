@@ -15,19 +15,22 @@ bundle agent simple(runenv, metadata)
 
       "activation_id" string => canonify("$(this.bundle)_$($(metadata)[activation][identifier])_$($(metadata)[activation][timestamp])");
 
-    ubuntu_10_4|ubuntu_12_4::
+    redhat_6::
+      "packages" slist =>
+      {
+        "postgresql-server",
+      }, policy => "free";
+
+    ubuntu_12_4::
       "packages" slist =>
       {
         "postgresql",
       }, policy => "free";
 
-    redhat|centos|fedora|suse|SuSE::
-      "packages" slist =>
-      {
-        "postgresql-server"
-      }, policy => "free";
+    redhat_6::
+      "process_match" string => "[^ ]+postmaster.*", policy => "free";
 
-    ubuntu_10_4|ubuntu_12_4::
+    ubuntu_12_4::
       "process_match" string => "[^ ]+postgres.*", policy => "free";
 
     test::
@@ -60,6 +63,12 @@ bundle agent simple(runenv, metadata)
       restart_class => "start_postgresql";
 
   commands:
+    redhat_6.start_postgresql::
+      "/etc/init.d/postgresql initdb"
+      ifvarclass => not( fileexists("/var/lib/pgsql/data/PG_VERSION") ),
+      comment => "Initialize database on first run",
+      handle => "$(activation_id)_postgresql_commands_initdb_redhat_6";   
+
     start_postgresql::
       "$(start_command)"
       comment => "Start/Restart PostgreSQL",
