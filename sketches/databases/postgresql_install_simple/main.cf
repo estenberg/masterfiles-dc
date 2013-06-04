@@ -15,18 +15,10 @@ bundle agent simple(runenv, metadata)
 
       "activation_id" string => canonify("$(this.bundle)_$($(metadata)[activation][identifier])_$($(metadata)[activation][timestamp])");
 
-    debian||ubuntu::
+    ubuntu_10_4|ubuntu_12_4::
       "packages" slist =>
       {
         "postgresql",
-        "postgresql-common"
-      }, policy => "free";
-
-      "server_packages" slist =>
-      {
-        "postgresql-server",
-        "postgresql-server-core",
-        "libhtml-template-perl"
       }, policy => "free";
 
     redhat|centos|fedora|suse|SuSE::
@@ -35,32 +27,16 @@ bundle agent simple(runenv, metadata)
         "postgresql-server"
       }, policy => "free";
 
-      "server_packages" slist =>
-      {
-        "postgresql-server",
-        "perl-DBD-PostgreSQL"
-      }, policy => "free";
-
-    !(redhat|centos|fedora)::
+    ubuntu_10_4|ubuntu_12_4::
       "process_match" string => "[^ ]+postgres.*", policy => "free";
 
     test::
-      "all_packages" slist => { "test-packages", "test-server-packages" }, policy => "free";
+      "packages" slist => { "test-packages" }, policy => "free";
       "type" string => "test-server", policy => "free";
-
-    not_test::
-      "all_packages" slist => { @(packages), @(server_packages) }, policy => "free";
-      "type" string => "server", policy => "free";
-
-    not_test::
-      "mode" string => "installing", policy => "free";
-
-    test::
-      "mode" string => "test-installing", policy => "free";
 
     any::
       "start_command" string => "/etc/init.d/postgresql restart";
-      "canon[$(all_packages)]" string => canonify($(all_packages));
+      "canon[$(packages)]" string => canonify($(packages));
 
   methods:
     verbose::
@@ -68,7 +44,7 @@ bundle agent simple(runenv, metadata)
       inherit => "true";
 
   packages:
-      "$(all_packages)"
+      "$(packages)"
       comment => "Install PostgreSQL packages",
       handle => "$(activation_id)_postgresql_install_packages_add",
       package_policy => "add",
@@ -108,16 +84,4 @@ bundle agent simple(runenv, metadata)
 
     !install_ok::
       "" bundle_return_value_index => "installed";
-
-    test::
-      "$(this.bundle): SIMULATE $(mode) of $(all_packages)";
-
-    verbose::
-      "$(this.bundle): PostgreSQL $(mode) in $(type) mode; packages $(all_packages)";
-    verbose::
-      "$(this.bundle): Install mode";
-    verbose.server::
-      "$(this.bundle): Server install mode";
-    verbose.!server::
-      "$(this.bundle): Client install mode";
 }
