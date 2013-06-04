@@ -37,79 +37,115 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/package_management/packages_installed/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/databases/postgresql_install_simple/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/networking/ntp/client/main.cf", "sketches/package_management/packages_installed/main.cf", "sketches/libraries/dclib-3.5.0/library.cf", "sketches/databases/postgresql_install_simple/main.cf" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __moo_001_Packages_installed_installed
-      "__moo_001_Packages_installed_installed_metadata[activation][identifier]" string => "moo";
-      "__moo_001_Packages_installed_installed_metadata[activation][timestamp]" string => "1370363616";
-      "__moo_001_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__moo_001_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__moo_001_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__moo_001_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__moo_001_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__moo_001_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__moo_001_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__moo_001_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__moo_001_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__moo_001_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__moo_001_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__moo_001_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__moo_001_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__moo_001_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__moo_001_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__moo_001_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__moo_001_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__moo_001_Packages_installed_installed_metadata[version]" string => "1.0.0";
+      # array 'metadata' from definition sketch metadata, activation __my_ntp_test_001_Networking_NTP_Client_client
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[activation][identifier]" string => "my ntp test";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[activation][timestamp]" string => "1370366986";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][][type]" string => "bundle_options";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][conffile][type]" string => "string";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][driftfile][type]" string => "string";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][metadata][type]" string => "metadata";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][peers][type]" string => "list";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][restrictions][type]" string => "list";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][runenv][type]" string => "environment";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][servers][type]" string => "list";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][statsdir][type]" string => "string";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[authors]" slist => { "Jon Henrik Bjornstad <jon.henrik.bjornstad@cfengine.com>" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[bundle_options][single_use]" string => "1";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[license]" string => "MIT";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[location]" string => "sketches/networking/ntp/client";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest]" slist => { "README.md", "main.cf" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_cf]" slist => { "main.cf" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_docs]" slist => { "README.md" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_exe]" slist => { "cf_null" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_extra]" slist => { "cf_null" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_test]" slist => { "cf_null" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[name]" string => "Networking::NTP::Client";
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[tags]" slist => { "cfdc", "ntp", "enterprise_compatible" };
+      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[version]" string => "1";
 
-      # list 'pkgs_add' from definition 75961adf105d586b531c8f5f785e6923, activation __moo_001_Packages_installed_installed
-      "__moo_001_Packages_installed_installed_pkgs_add" slist => { "flops", "flips2", "oink" };
+      # list 'servers' from definition 9344aed1a21db4ab42fe9bb64f21f7dd, activation __my_ntp_test_001_Networking_NTP_Client_client
+      "__my_ntp_test_001_Networking_NTP_Client_client_servers" slist => { "ntp1.example.com", "ntp2.example.com" };
 
-      # array 'mymetadata' from definition sketch metadata, activation __postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][identifier]" string => "postgres ubure";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][timestamp]" string => "1370315853";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][running][type]" string => "return";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[license]" string => "MIT";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[location]" string => "sketches/databases/postgresql_install_simple";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[name]" string => "Database::Install::PostgreSQL::Simple";
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "postgresql", "enterprise_compatible" };
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[version]" string => "1.1";
+      # list 'peers' from definition 9344aed1a21db4ab42fe9bb64f21f7dd, activation __my_ntp_test_001_Networking_NTP_Client_client
+      "__my_ntp_test_001_Networking_NTP_Client_client_peers" slist => { "ntp1peer.example.com", "ntp2peer.example.com" };
 
-      # array 'mymetadata' from definition sketch metadata, activation __testing_003_Database_Install_PostgreSQL_Simple_simple
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][identifier]" string => "testing";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][timestamp]" string => "1370363236";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][running][type]" string => "return";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[license]" string => "MIT";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[location]" string => "sketches/databases/postgresql_install_simple";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[name]" string => "Database::Install::PostgreSQL::Simple";
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "postgresql", "enterprise_compatible" };
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[version]" string => "1.1";
+      # list 'restrictions' from definition 9344aed1a21db4ab42fe9bb64f21f7dd, activation __my_ntp_test_001_Networking_NTP_Client_client
+      "__my_ntp_test_001_Networking_NTP_Client_client_restrictions" slist => { "nomodifyrestrict" };
+
+      # array 'metadata' from definition sketch metadata, activation __moo_002_Packages_installed_installed
+      "__moo_002_Packages_installed_installed_metadata[activation][identifier]" string => "moo";
+      "__moo_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1370363616";
+      "__moo_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
+      "__moo_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
+      "__moo_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
+      "__moo_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
+      "__moo_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
+      "__moo_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
+      "__moo_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
+      "__moo_002_Packages_installed_installed_metadata[license]" string => "MIT";
+      "__moo_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
+      "__moo_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
+      "__moo_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
+      "__moo_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
+      "__moo_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
+      "__moo_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
+      "__moo_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
+      "__moo_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
+      "__moo_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
+      "__moo_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
+
+      # list 'pkgs_add' from definition 75961adf105d586b531c8f5f785e6923, activation __moo_002_Packages_installed_installed
+      "__moo_002_Packages_installed_installed_pkgs_add" slist => { "flops", "flips2", "oink" };
+
+      # array 'mymetadata' from definition sketch metadata, activation __postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][identifier]" string => "postgres ubure";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][timestamp]" string => "1370315853";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][running][type]" string => "return";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[license]" string => "MIT";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[location]" string => "sketches/databases/postgresql_install_simple";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[name]" string => "Database::Install::PostgreSQL::Simple";
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "postgresql", "enterprise_compatible" };
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata[version]" string => "1.1";
+
+      # array 'mymetadata' from definition sketch metadata, activation __testing_004_Database_Install_PostgreSQL_Simple_simple
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][identifier]" string => "testing";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][timestamp]" string => "1370363236";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][running][type]" string => "return";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[authors]" slist => { "Nakarin Phooripoom <nakarin.phooripoom@cfengine.com>", "Ted Zlatanov <tzz@lifelogs.com>" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[depends]" slist => { "CFEngine::dclib", "CFEngine::dclib::3.5.0", "CFEngine::stdlib" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[license]" string => "MIT";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[location]" string => "sketches/databases/postgresql_install_simple";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest]" slist => { "README.md", "main.cf", "params/demo_client.json", "params/demo_server.json" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_cf]" slist => { "main.cf" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_docs]" slist => { "README.md" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_exe]" slist => { "cf_null" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_extra]" slist => { "params/demo_client.json", "params/demo_server.json" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[manifest_test]" slist => { "cf_null" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[name]" string => "Database::Install::PostgreSQL::Simple";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[tags]" slist => { "cfdc", "database", "postgresql", "enterprise_compatible" };
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata[version]" string => "1.1";
 
   methods:
     any::
@@ -118,19 +154,22 @@ bundle agent cfsketch_run
       "ad0efd864ab8dc9feaafcded715fb6c7" usebundle => "ad0efd864ab8dc9feaafcded715fb6c7";
 
     runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated::
-      "__moo_001_Packages_installed_installed" usebundle => cfdc_packages:installed("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__moo_001_Packages_installed_installed_metadata", @(cfsketch_run.__moo_001_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___moo_001_Packages_installed_installed";
+      "__my_ntp_test_001_Networking_NTP_Client_client" usebundle => cfdc_ntp:client("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_metadata", "/etc/ntp.conf", @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_servers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_peers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_restrictions), "/var/lib/ntp/drift", "/var/log/ntpstats"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___my_ntp_test_001_Networking_NTP_Client_client";
     runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated::
-      "__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple" usebundle => cfdc_db_postgresql:simple("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple_mymetadata"), ifvarclass => "(redhat_6|ubuntu_12_4)", useresult => "return___postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple";
+      "__moo_002_Packages_installed_installed" usebundle => cfdc_packages:installed("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__moo_002_Packages_installed_installed_metadata", @(cfsketch_run.__moo_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___moo_002_Packages_installed_installed";
+    runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated::
+      "__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple" usebundle => cfdc_db_postgresql:simple("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple_mymetadata"), ifvarclass => "(redhat_6|ubuntu_12_4)", useresult => "return___postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple";
     runenv_17ed5fd85b72395cbbb75bc02ff389aa_activated::
-      "__testing_003_Database_Install_PostgreSQL_Simple_simple" usebundle => cfdc_db_postgresql:simple("17ed5fd85b72395cbbb75bc02ff389aa", "default:cfsketch_run.__testing_003_Database_Install_PostgreSQL_Simple_simple_mymetadata"), ifvarclass => "(redhat_6|ubuntu_12_4)", useresult => "return___testing_003_Database_Install_PostgreSQL_Simple_simple";
+      "__testing_004_Database_Install_PostgreSQL_Simple_simple" usebundle => cfdc_db_postgresql:simple("17ed5fd85b72395cbbb75bc02ff389aa", "default:cfsketch_run.__testing_004_Database_Install_PostgreSQL_Simple_simple_mymetadata"), ifvarclass => "(redhat_6|ubuntu_12_4)", useresult => "return___testing_004_Database_Install_PostgreSQL_Simple_simple";
 
   reports:
     inform_mode::
-      "activation __moo_001_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple returned installed = $(return___postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple[installed])";
-      "activation __postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple returned running = $(return___postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple[running])";
-      "activation __postgres_ubure_002_Database_Install_PostgreSQL_Simple_simple could not run because it requires classes (redhat_6|ubuntu_12_4)" ifvarclass => "inform_mode.!((redhat_6|ubuntu_12_4))";
-      "activation __testing_003_Database_Install_PostgreSQL_Simple_simple returned installed = $(return___testing_003_Database_Install_PostgreSQL_Simple_simple[installed])";
-      "activation __testing_003_Database_Install_PostgreSQL_Simple_simple returned running = $(return___testing_003_Database_Install_PostgreSQL_Simple_simple[running])";
-      "activation __testing_003_Database_Install_PostgreSQL_Simple_simple could not run because it requires classes (redhat_6|ubuntu_12_4)" ifvarclass => "inform_mode.!((redhat_6|ubuntu_12_4))";
+      "activation __my_ntp_test_001_Networking_NTP_Client_client could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __moo_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+      "activation __postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple returned installed = $(return___postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple[installed])";
+      "activation __postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple returned running = $(return___postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple[running])";
+      "activation __postgres_ubure_003_Database_Install_PostgreSQL_Simple_simple could not run because it requires classes (redhat_6|ubuntu_12_4)" ifvarclass => "inform_mode.!((redhat_6|ubuntu_12_4))";
+      "activation __testing_004_Database_Install_PostgreSQL_Simple_simple returned installed = $(return___testing_004_Database_Install_PostgreSQL_Simple_simple[installed])";
+      "activation __testing_004_Database_Install_PostgreSQL_Simple_simple returned running = $(return___testing_004_Database_Install_PostgreSQL_Simple_simple[running])";
+      "activation __testing_004_Database_Install_PostgreSQL_Simple_simple could not run because it requires classes (redhat_6|ubuntu_12_4)" ifvarclass => "inform_mode.!((redhat_6|ubuntu_12_4))";
 }
