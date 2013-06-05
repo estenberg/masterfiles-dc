@@ -2,20 +2,6 @@
 
 # environment common bundles
 
-# environment ad0efd864ab8dc9feaafcded715fb6c7
-bundle common ad0efd864ab8dc9feaafcded715fb6c7
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated" and => { classmatch("ubuntu_12_4|redhat_6") };
-      "runenv_ad0efd864ab8dc9feaafcded715fb6c7_test" expression => "!any";
-      "runenv_ad0efd864ab8dc9feaafcded715fb6c7_verbose" expression => "!any";
-}
-
 
 # activation data
 bundle common cfsketch_g
@@ -23,58 +9,21 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/networking/ntp/client/main.cf" };
+      "inputs" slist => { "cf_null" };
 }
 
 bundle agent cfsketch_run
 {
   vars:
 
-      # array 'metadata' from definition sketch metadata, activation __my_ntp_test_001_Networking_NTP_Client_client
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[activation][identifier]" string => "my ntp test";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[activation][timestamp]" string => "1370366986";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][][type]" string => "bundle_options";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][conffile][type]" string => "string";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][driftfile][type]" string => "string";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][metadata][type]" string => "metadata";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][peers][type]" string => "list";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][restrictions][type]" string => "list";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][runenv][type]" string => "environment";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][servers][type]" string => "list";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[api][statsdir][type]" string => "string";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[authors]" slist => { "Jon Henrik Bjornstad <jon.henrik.bjornstad@cfengine.com>" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[bundle_options][single_use]" string => "1";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[license]" string => "MIT";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[location]" string => "sketches/networking/ntp/client";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest]" slist => { "README.md", "main.cf" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_cf]" slist => { "main.cf" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_docs]" slist => { "README.md" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_exe]" slist => { "cf_null" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_extra]" slist => { "cf_null" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[manifest_test]" slist => { "cf_null" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[name]" string => "Networking::NTP::Client";
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[tags]" slist => { "cfdc", "ntp", "enterprise_compatible" };
-      "__my_ntp_test_001_Networking_NTP_Client_client_metadata[version]" string => "1";
 
-      # list 'servers' from definition 9344aed1a21db4ab42fe9bb64f21f7dd, activation __my_ntp_test_001_Networking_NTP_Client_client
-      "__my_ntp_test_001_Networking_NTP_Client_client_servers" slist => { "ntp1.example.com", "ntp2.example.com" };
-
-      # list 'peers' from definition 9344aed1a21db4ab42fe9bb64f21f7dd, activation __my_ntp_test_001_Networking_NTP_Client_client
-      "__my_ntp_test_001_Networking_NTP_Client_client_peers" slist => { "ntp1peer.example.com", "ntp2peer.example.com" };
-
-      # list 'restrictions' from definition 9344aed1a21db4ab42fe9bb64f21f7dd, activation __my_ntp_test_001_Networking_NTP_Client_client
-      "__my_ntp_test_001_Networking_NTP_Client_client_restrictions" slist => { "nomodifyrestrict" };
 
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "ad0efd864ab8dc9feaafcded715fb6c7" usebundle => "ad0efd864ab8dc9feaafcded715fb6c7";
 
-    runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated::
-      "__my_ntp_test_001_Networking_NTP_Client_client" usebundle => cfdc_ntp:client("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_metadata", "/etc/ntp.conf", @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_servers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_peers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_restrictions), "/var/lib/ntp/drift", "/var/log/ntpstats"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___my_ntp_test_001_Networking_NTP_Client_client";
+
 
   reports:
-    inform_mode::
-      "activation __my_ntp_test_001_Networking_NTP_Client_client could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
+    cfengine::
 }
