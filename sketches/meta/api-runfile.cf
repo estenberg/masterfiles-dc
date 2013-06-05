@@ -2,8 +2,8 @@
 
 # environment common bundles
 
-# environment 092b04a40fdd4cb8bfdb685f2c4a0328
-bundle common 092b04a40fdd4cb8bfdb685f2c4a0328
+# environment 1b6aaf65758a53826053c5dd3e893e29
+bundle common 1b6aaf65758a53826053c5dd3e893e29
 {
   vars:
       "activated" string => "--'activated' value passed as a class function--";
@@ -11,9 +11,9 @@ bundle common 092b04a40fdd4cb8bfdb685f2c4a0328
       "test" string => "";
       "verbose" string => "";
   classes:
-      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated" and => { classmatch("cfengine_3") };
-      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_test" expression => "!any";
-      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_verbose" expression => "!any";
+      "runenv_1b6aaf65758a53826053c5dd3e893e29_activated" and => { classmatch("linux") };
+      "runenv_1b6aaf65758a53826053c5dd3e893e29_test" expression => "!any";
+      "runenv_1b6aaf65758a53826053c5dd3e893e29_verbose" expression => "!any";
 }
 
 # environment ad0efd864ab8dc9feaafcded715fb6c7
@@ -82,7 +82,7 @@ bundle agent cfsketch_run
 
       # array 'mymetadata' from definition sketch metadata, activation __moohs_002_Database_Install_PostgreSQL_Simple_simple
       "__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][identifier]" string => "moohs";
-      "__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][timestamp]" string => "1370437340";
+      "__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[activation][timestamp]" string => "1370437392";
       "__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][installed][type]" string => "return";
       "__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][mymetadata][type]" string => "metadata";
       "__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata[api][runenv][type]" string => "environment";
@@ -104,13 +104,13 @@ bundle agent cfsketch_run
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "092b04a40fdd4cb8bfdb685f2c4a0328" usebundle => "092b04a40fdd4cb8bfdb685f2c4a0328";
+      "1b6aaf65758a53826053c5dd3e893e29" usebundle => "1b6aaf65758a53826053c5dd3e893e29";
       "ad0efd864ab8dc9feaafcded715fb6c7" usebundle => "ad0efd864ab8dc9feaafcded715fb6c7";
 
     runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated::
       "__my_ntp_test_001_Networking_NTP_Client_client" usebundle => cfdc_ntp:client("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_metadata", "/etc/ntp.conf", @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_servers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_peers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_restrictions), "/var/lib/ntp/drift", "/var/log/ntpstats"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___my_ntp_test_001_Networking_NTP_Client_client";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__moohs_002_Database_Install_PostgreSQL_Simple_simple" usebundle => cfdc_db_postgresql:simple("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata"), ifvarclass => "(redhat_6|ubuntu_12_4)", useresult => "return___moohs_002_Database_Install_PostgreSQL_Simple_simple";
+    runenv_1b6aaf65758a53826053c5dd3e893e29_activated::
+      "__moohs_002_Database_Install_PostgreSQL_Simple_simple" usebundle => cfdc_db_postgresql:simple("1b6aaf65758a53826053c5dd3e893e29", "default:cfsketch_run.__moohs_002_Database_Install_PostgreSQL_Simple_simple_mymetadata"), ifvarclass => "(redhat_6|ubuntu_12_4)", useresult => "return___moohs_002_Database_Install_PostgreSQL_Simple_simple";
 
   reports:
     inform_mode::
