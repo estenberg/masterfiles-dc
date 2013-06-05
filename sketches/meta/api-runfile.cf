@@ -2,20 +2,6 @@
 
 # environment common bundles
 
-# environment 092b04a40fdd4cb8bfdb685f2c4a0328
-bundle common 092b04a40fdd4cb8bfdb685f2c4a0328
-{
-  vars:
-      "activated" string => "--'activated' value passed as a class function--";
-      "env_vars" slist => { "activated", "test", "verbose" };
-      "test" string => "";
-      "verbose" string => "";
-  classes:
-      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated" and => { classmatch("cfengine_3") };
-      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_test" expression => "!any";
-      "runenv_092b04a40fdd4cb8bfdb685f2c4a0328_verbose" expression => "!any";
-}
-
 # environment ad0efd864ab8dc9feaafcded715fb6c7
 bundle common ad0efd864ab8dc9feaafcded715fb6c7
 {
@@ -37,7 +23,7 @@ bundle common cfsketch_g
   vars:
       # Files that need to be loaded for the activated sketches and
       # their dependencies.
-      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/networking/ntp/client/main.cf", "sketches/package_management/packages_installed/main.cf" };
+      "inputs" slist => { "sketches/libraries/dclib/library.cf", "sketches/networking/ntp/client/main.cf" };
 }
 
 bundle agent cfsketch_run
@@ -80,44 +66,15 @@ bundle agent cfsketch_run
       # list 'restrictions' from definition 9344aed1a21db4ab42fe9bb64f21f7dd, activation __my_ntp_test_001_Networking_NTP_Client_client
       "__my_ntp_test_001_Networking_NTP_Client_client_restrictions" slist => { "nomodifyrestrict" };
 
-      # array 'metadata' from definition sketch metadata, activation __mooh2_002_Packages_installed_installed
-      "__mooh2_002_Packages_installed_installed_metadata[activation][identifier]" string => "mooh2";
-      "__mooh2_002_Packages_installed_installed_metadata[activation][timestamp]" string => "1370437136";
-      "__mooh2_002_Packages_installed_installed_metadata[api][][type]" string => "bundle_options";
-      "__mooh2_002_Packages_installed_installed_metadata[api][metadata][type]" string => "metadata";
-      "__mooh2_002_Packages_installed_installed_metadata[api][pkgs_add][type]" string => "list";
-      "__mooh2_002_Packages_installed_installed_metadata[api][runenv][type]" string => "environment";
-      "__mooh2_002_Packages_installed_installed_metadata[authors]" slist => { "Eystein Stenberg <eystein.maloy.stenberg@cfengine.com>" };
-      "__mooh2_002_Packages_installed_installed_metadata[bundle_options][single_use]" string => "1";
-      "__mooh2_002_Packages_installed_installed_metadata[depends]" slist => { "CFEngine::dclib", "CFEngine::stdlib" };
-      "__mooh2_002_Packages_installed_installed_metadata[license]" string => "MIT";
-      "__mooh2_002_Packages_installed_installed_metadata[location]" string => "sketches/package_management/packages_installed";
-      "__mooh2_002_Packages_installed_installed_metadata[manifest]" slist => { "README.md", "main.cf", "params/demo.json", "test.cf", "test.pl" };
-      "__mooh2_002_Packages_installed_installed_metadata[manifest_cf]" slist => { "main.cf", "test.cf" };
-      "__mooh2_002_Packages_installed_installed_metadata[manifest_docs]" slist => { "README.md" };
-      "__mooh2_002_Packages_installed_installed_metadata[manifest_exe]" slist => { "cf_null" };
-      "__mooh2_002_Packages_installed_installed_metadata[manifest_extra]" slist => { "params/demo.json" };
-      "__mooh2_002_Packages_installed_installed_metadata[manifest_test]" slist => { "test.pl" };
-      "__mooh2_002_Packages_installed_installed_metadata[name]" string => "Packages::installed";
-      "__mooh2_002_Packages_installed_installed_metadata[tags]" slist => { "cfdc", "packages", "enterprise_compatible" };
-      "__mooh2_002_Packages_installed_installed_metadata[version]" string => "1.0.0";
-
-      # list 'pkgs_add' from definition d8a53674c6fbe189060da6dbfb12f72a, activation __mooh2_002_Packages_installed_installed
-      "__mooh2_002_Packages_installed_installed_pkgs_add" slist => { "apache2" };
-
   methods:
     any::
       "cfsketch_g" usebundle => "cfsketch_g";
-      "092b04a40fdd4cb8bfdb685f2c4a0328" usebundle => "092b04a40fdd4cb8bfdb685f2c4a0328";
       "ad0efd864ab8dc9feaafcded715fb6c7" usebundle => "ad0efd864ab8dc9feaafcded715fb6c7";
 
     runenv_ad0efd864ab8dc9feaafcded715fb6c7_activated::
       "__my_ntp_test_001_Networking_NTP_Client_client" usebundle => cfdc_ntp:client("ad0efd864ab8dc9feaafcded715fb6c7", "default:cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_metadata", "/etc/ntp.conf", @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_servers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_peers), @(cfsketch_run.__my_ntp_test_001_Networking_NTP_Client_client_restrictions), "/var/lib/ntp/drift", "/var/log/ntpstats"), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___my_ntp_test_001_Networking_NTP_Client_client";
-    runenv_092b04a40fdd4cb8bfdb685f2c4a0328_activated::
-      "__mooh2_002_Packages_installed_installed" usebundle => cfdc_packages:installed("092b04a40fdd4cb8bfdb685f2c4a0328", "default:cfsketch_run.__mooh2_002_Packages_installed_installed_metadata", @(cfsketch_run.__mooh2_002_Packages_installed_installed_pkgs_add)), ifvarclass => "(centos|debian|redhat|ubuntu)", useresult => "return___mooh2_002_Packages_installed_installed";
 
   reports:
     inform_mode::
       "activation __my_ntp_test_001_Networking_NTP_Client_client could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
-      "activation __mooh2_002_Packages_installed_installed could not run because it requires classes (centos|debian|redhat|ubuntu)" ifvarclass => "inform_mode.!((centos|debian|redhat|ubuntu))";
 }
